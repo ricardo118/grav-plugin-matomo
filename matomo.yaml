@@ -1,0 +1,20 @@
+enabled: disabled                 # Global enable/disable the entire plugin
+enable_site: true                 # Enable the tracking code on the public site
+hosted_url: ""                    # The url where your piwik is hosted
+trackingId: 1                     # Matomo Tracking ID `REQUIRED`
+token_auth: ""                    # Matomo Token AUTH `REQUIRED`
+
+track_subdomains: false           # Track visitors across all subdomains
+prepend_domain: false             # Prepend the site domain to the page title when tracking
+hide_alias: false                 # In the "Outlinks" report, hide clicks to known alias URLs of SITE
+track_disabled_js: false          # Track users with JavaScript disabled
+
+track_custom_vars: false          # Track custom variables for this visitor
+do_not_track: false               # Enable client side DoNotTrack detection
+disable_tracking_cookies: false   # Disables all first party cookies. Existing Matomo cookies for this website will be deleted on the next page view.
+
+gdpr:
+  enabled: false
+
+popup:
+  enabled: false

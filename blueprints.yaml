@@ -1,0 +1,328 @@
+name: Matomo Analytics
+version: 1.0.0
+description: "Easily integrate and configure Matomo Analytics without the need to touch any code within your site. Includes a handy in-Grav view of your Matomo dashboard."
+icon: bar-chart
+author:
+  name: URBANSQUID
+  email: ricardo@urbansquid.london
+  url: http://urbansquid.london
+homepage:
+keywords: piwik, matomo, plugin, tracking, analytics, grav, admin plugin, plugin. gdpr, rgpd, dsgvo, bdar
+bugs:
+docs:
+license: MIT
+
+form:
+  validation: strict
+  fields:
+
+    tabs:
+      type: tabs
+      active: 1
+      class: subtle
+
+      fields:
+
+        configuration:
+          type: tab
+          title: PLUGIN_MATOMO.SECTION_CONFIGURATION
+          fields:
+
+            enabled:
+              type: toggle
+              label: PLUGIN_MATOMO.PLUGIN_STATUS
+              hightlight: 1
+              default: 1
+              options:
+                1: PLUGIN_MATOMO.ENABLED
+                0: PLUGIN_MATOMO.DISABLED
+              validate:
+                type: bool
+
+            enable_site:
+              type: toggle
+              label: PLUGIN_MATOMO.ENABLE_SITE
+              help: PLUGIN_MATOMO.ENABLE_SITE_HELP
+              hightlight: 1
+              default: 1
+              options:
+                1: PLUGIN_MATOMO.ENABLED
+                0: PLUGIN_MATOMO.DISABLED
+              validate:
+                type: bool
+
+            trackingId:
+              type: text
+              size: small
+              label: PLUGIN_MATOMO.TRACKING_ID
+              help: PLUGIN_MATOMO.TRACKING_ID_HELP
+              placeholder: "1"
+              validate:
+                required: true
+
+            hosted_url:
+              type: text
+              size: medium
+              label: PLUGIN_MATOMO.HOST_URL
+              help: PLUGIN_MATOMO.HOST_URL_HELP
+              placeholder: "https://yourwebsite.com/piwik/"
+              validate:
+                required: true
+
+            token_auth:
+              type: text
+              size: medium
+              label: PLUGIN_MATOMO.TOKEN_AUTH
+              help: PLUGIN_MATOMO.TOKEN_AUTH_HELP
+              placeholder: PLUGIN_MATOMO.TOKEN_AUTH_PLACEHOLDER
+              validate:
+                required: true
+
+            gdpr:
+              type: section
+              title: PLUGIN_MATOMO.GDPR
+              text: PLUGIN_MATOMO.GDPR_HELP
+              fields:
+                gdpr.enabled:
+                  type: toggle
+                  label: PLUGIN_MATOMO.OPT_OUT
+                  help: PLUGIN_MATOMO.OPT_OUT_HELP
+                  description: PLUGIN_MATOMO.OPT_OUT_DESC
+                  hightlight: 1
+                  default: 1
+                  options:
+                    1: PLUGIN_MATOMO.ENABLED
+                    0: PLUGIN_MATOMO.DISABLED
+                  validate:
+                    type: bool
+
+                gdpr.bc:
+                  type: text
+                  label: PLUGIN_MATOMO.BACKGROUND_COLOR
+                  prepend: '#'
+                  default: 'FFFFFF'
+
+                gdpr.fc:
+                  type: text
+                  label: PLUGIN_MATOMO.FONT_COLOR
+                  prepend: '#'
+                  default: '000000'
+
+                gdpr.ff:
+                  type: text
+                  size: medium
+                  label: PLUGIN_MATOMO.FONT_FAMILY
+
+                gdpr.fs:
+                  type: text
+                  size: medium
+                  append: px
+                  label: PLUGIN_MATOMO.FONT_SIZE
+                  placeholder: PLUGIN_MATOMO.PIXELS
+                  validate:
+                    type: number
+
+
+            popup:
+              type: section
+              title: PLUGIN_MATOMO.POPUP
+              text: PLUGIN_MATOMO.POPUP_HELP
+              fields:
+                popup.enabled:
+                  type: toggle
+                  label: PLUGIN_MATOMO.POPUP
+                  hightlight: 0
+                  default: 0
+                  options:
+                    1: PLUGIN_MATOMO.ENABLED
+                    0: PLUGIN_MATOMO.DISABLED
+                  validate:
+                    type: bool
+
+                popup.cookieTypes:
+                  type: list
+                  style: vertical
+                  collapsed: true
+                  label: PLUGIN_MATOMO.COOKIE_TYPES
+                  fields:
+                    .type:
+                      type: text
+                      label: PLUGIN_MATOMO.TYPE
+                    .value:
+                      type: text
+                      label: PLUGIN_MATOMO.VALUE
+                    .description:
+                      type: text
+                      label: PLUGIN_MATOMO.DESCRIPTION
+
+                popup.title:
+                  type: text
+                  label: PLUGIN_MATOMO.TITLE
+
+                popup.message:
+                  type: textarea
+                  rows: 4
+                  label: PLUGIN_MATOMO.MESSAGE
+
+                popup.link:
+                  type: pages
+                  show_all: false
+                  label: PLUGIN_MATOMO.LINK
+
+                popup.delay:
+                  type: text
+                  label: PLUGIN_MATOMO.DELAY
+                  placeholder: PLUGIN_MATOMO.DELAY_PH
+                  size: small
+                  append: ms
+                  validate:
+                    type: number
+
+                popup.expires:
+                  type: text
+                  label: PLUGIN_MATOMO.EXPIRES
+                  placeholder: PLUGIN_MATOMO.EXPIRES_PH
+                  size: small
+                  append: days
+                  validate:
+                    type: number
+
+                popup.moreInfoLabel:
+                  type: text
+                  label: PLUGIN_MATOMO.MOREINFO
+                  placeholder: PLUGIN_MATOMO.MOREINFO_PH
+
+                popup.acceptBtnLabel:
+                  type: text
+                  label: PLUGIN_MATOMO.ACCEPT
+                  placeholder: PLUGIN_MATOMO.ACCEPT_PH
+
+                popup.advancedBtnLabel:
+                  type: text
+                  label: PLUGIN_MATOMO.ADVANCED
+                  placeholder: PLUGIN_MATOMO.ADVANCED_PH
+
+                popup.cookieTypesTitle:
+                  type: text
+                  label: PLUGIN_MATOMO.COOKIE_TYPES_TITLE
+                  placeholder: PLUGIN_MATOMO.COOKIE_TYPES_TITLE_PH
+
+                popup.fixedCookieTypeLabel:
+                  type: text
+                  label: PLUGIN_MATOMO.FIXED_LABEL
+                  placeholder: PLUGIN_MATOMO.FIXED_LABEL_PH
+
+                popup.fixedCookieTypeDesc:
+                  type: text
+                  label: PLUGIN_MATOMO.FIXED_DESC
+                  placeholder: PLUGIN_MATOMO.FIXED_DESC_PH
+
+                popup.uncheckBoxes:
+                  type: toggle
+                  label: PLUGIN_MATOMO.UNCHECK
+                  help: PLUGIN_MATOMO.UNCHECK_HELP
+                  hightlight: 0
+                  default: 0
+                  options:
+                    1: PLUGIN_MATOMO.ENABLED
+                    0: PLUGIN_MATOMO.DISABLED
+                  validate:
+                    type: bool
+
+        options:
+          type: tab
+          title: PLUGIN_MATOMO.SECTION_OPTIONS
+          fields:
+
+            track_subdomains:
+              type: toggle
+              label: PLUGIN_MATOMO.TRACK_SUBDOMAINS
+              help: PLUGIN_MATOMO.TRACK_SUBDOMAINS_HELP
+              hightlight: 1
+              default: 0
+              options:
+                1: PLUGIN_MATOMO._YES
+                0: PLUGIN_MATOMO._NO
+              validate:
+                type: bool
+
+            prepend_domain:
+              type: toggle
+              label: PLUGIN_MATOMO.PREPEND_DOMAIN
+              help: PLUGIN_MATOMO.PREPEND_DOMAIN_HELP
+              hightlight: 1
+              default: 0
+              options:
+                1: PLUGIN_MATOMO._YES
+                0: PLUGIN_MATOMO._NO
+              validate:
+                type: bool
+
+            hide_alias:
+              type: toggle
+              label: PLUGIN_MATOMO.HIDE_ALIAS
+              help: PLUGIN_MATOMO.HIDE_ALIAS_HELP
+              hightlight: 1
+              default: 0
+              options:
+                1: PLUGIN_MATOMO._YES
+                0: PLUGIN_MATOMO._NO
+              validate:
+                type: bool
+
+            track_disabled_js:
+              type: toggle
+              label: PLUGIN_MATOMO.TRACK_DISABLED_JS
+              hightlight: 1
+              default: 0
+              options:
+                1: PLUGIN_MATOMO._YES
+                0: PLUGIN_MATOMO._NO
+              validate:
+                type: bool
+
+        advanced:
+          type: tab
+          title: PLUGIN_MATOMO.SECTION_ADVANCED
+          fields:
+
+            track_custom_vars:
+              type: array
+              label: PLUGIN_MATOMO.TRACK_CUSTOM_VARS
+              help: PLUGIN_MATOMO.TRACK_CUSTOM_VARS_HELP
+              placeholder_key: PLUGIN_MATOMO.TRACK_CUSTOM_VARS_PLACEHOLDER_1
+              placeholder_value: PLUGIN_MATOMO.TRACK_CUSTOM_VARS_PLACEHOLDER_2
+
+            do_not_track:
+              type: toggle
+              label: PLUGIN_MATOMO.DO_NOT_TRACK
+              help: PLUGIN_MATOMO.DO_NOT_TRACK_HELP
+              hightlight: 1
+              default: 0
+              options:
+                1: PLUGIN_MATOMO._YES
+                0: PLUGIN_MATOMO._NO
+              validate:
+                type: bool
+
+            disable_tracking_cookies:
+              type: toggle
+              label: PLUGIN_MATOMO.DISABLE_TRACKING_COOKIES
+              help: PLUGIN_MATOMO.DISABLE_TRACKING_COOKIES_HELP
+              hightlight: 1
+              default: 0
+              options:
+                1: PLUGIN_MATOMO._YES
+                0: PLUGIN_MATOMO._NO
+              validate:
+                type: bool
+
+        custom:
+          type: tab
+          title: PLUGIN_MATOMO.CUSTOM
+          fields:
+            custom_code:
+              type: editor
+              style: vertical
+              label: PLUGIN_MATOMO.CUSTOM_CODE
+              description: PLUGIN_MATOMO.CUSTOM_CODE_HELP

@@ -1,0 +1,24 @@
+/*STATS PAGES*/
+.stats {
+    background : #FFFFFF;
+}
+
+.stats .content-wrapper {
+    height : 100vh !important;
+}
+
+.stats-frame {
+    overflow : hidden;
+    height   : calc(100vh - 2.6rem) !important;
+}
+
+.stats .content-padding {
+    height : 100% !important;
+}
+
+.stats .content-padding {
+    padding        : 2.5rem !important;
+    padding-bottom : 0 !important;
+}
+
+/*END STATS PAGES*/

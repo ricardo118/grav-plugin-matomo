@@ -1,0 +1,44 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block page %}
+    <div class="remodal-bg">
+
+        {% block navigation %}
+            {% include 'partials/nav.html.twig' %}
+        {% endblock %}
+
+        <main id="admin-main" class="stats" >
+
+            <div class="content-wrapper">
+                <div class="content-padding" style="overflow:hidden;padding:10px 0 0 25px !important;">
+                    <iframe class="stats-frame" scrolling="yes" src="{{ config.plugins.matomo.hosted_url }}index.php?module=Widgetize&action=iframe&moduleToWidgetize=Dashboard&actionToWidgetize=index&idSite={{ config.plugins.matomo.trackingId }}&token_auth={{ config.plugins.matomo.token_auth }}&period=week&date=yesterday" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100vh"></iframe>
+                </div>
+            </div>
+
+            <div class="remodal" data-remodal-id="generic" data-remodal-options="hashTracking: false">
+                <form>
+                    <h1>{{ "PLUGIN_ADMIN.ERROR"|tu }}</h1>
+                    <div class="error-content"></div>
+                    <div class="button-bar">
+                        <a class="button remodal-cancel" data-remodal-action="cancel" href="#">{{ "PLUGIN_ADMIN.CLOSE"|tu }}</a>
+                    </div>
+                </form>
+            </div>
+
+            <div class="remodal" data-remodal-id="delete-media" data-remodal-options="hashTracking: false">
+                <form>
+                    <h1>{{ "PLUGIN_ADMIN.MODAL_DELETE_FILE_CONFIRMATION_REQUIRED_TITLE"|tu }}</h1>
+                    <p class="bigger">
+                        {{ "PLUGIN_ADMIN.MODAL_DELETE_FILE_CONFIRMATION_REQUIRED_DESC"|tu }}
+                    </p>
+                    <br>
+                    <div class="button-bar">
+                        <button data-remodal-action="cancel" class="button secondary remodal-cancel"><i class="fa fa-fw fa-close"></i> {{ "PLUGIN_ADMIN.CANCEL"|tu }}</button>
+                        <button data-remodal-action="confirm" class="button remodal-confirm disable-after-click"><i class="fa fa-fw fa-check"></i> {{ "PLUGIN_ADMIN.CONTINUE"|tu }}</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <div id='overlay'></div>
+    </div>
+{% endblock page %}
