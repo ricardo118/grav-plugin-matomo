@@ -24,7 +24,7 @@ The simplest way to install this plugin is via the [Grav Package Manager (GPM)](
 
     bin/gpm install matomo
 
-This will install the Google Analytics plugin into your `/user/plugins` directory within Grav. Its files can be found under `/your/site/grav/user/plugins/matomo`.
+This will install the Matomo Analytics plugin into your `/user/plugins` directory within Grav. Its files can be found under `/your/site/grav/user/plugins/matomo`.
 
 ### Manual Installation
 
