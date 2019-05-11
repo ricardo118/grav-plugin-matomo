@@ -1,5 +1,5 @@
 name: Matomo Analytics
-version: 1.0.0
+version: 1.0.1
 description: "Easily integrate and configure Matomo Analytics without the need to touch any code within your site. Includes a handy in-Grav view of your Matomo dashboard."
 icon: bar-chart
 author:
