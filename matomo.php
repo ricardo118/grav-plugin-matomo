@@ -77,7 +77,7 @@ class MatomoPlugin extends Plugin
         {
             $this->grav['assets']->addCss('plugin://matomo/css/matomo.css');
             $this->grav['assets']->addJs('plugin://matomo/js/jquery.ihavecookies.js');
-            $this->grav['assets']->addJs('plugin://matomo/js/matomo.js');
+            $this->grav['assets']->addJs('plugin://matomo/js/script.js');
 
             $popup = $this->configs['popup'];
             unset($popup['enabled']);
